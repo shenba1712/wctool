@@ -35,9 +35,6 @@ public class WCTool implements Callable<Integer> {
     @CommandLine.Parameters(index = "0", description = "The file/text whose count should be calculated.")
     private String input;
 
-    // List of options for which file/text input is not needed.
-    private static final List<String> helperOptions = Arrays.asList("-h", "--help", "-V", "--version", "-hV", "-Vh");
-
     // check each flag individually to support multiple flags.
     // For example, -wl will calculate both number of words and lines.
     @Override
@@ -171,10 +168,9 @@ public class WCTool implements Callable<Integer> {
     }
 
     public static void main(String[] args) throws IOException {
-        // If there is only one argument and that is not a helper option, then there is a piped input.
-        // Check if piped input has value. If available, read the value.
-        // else, continue to throw error that input is missing.
-        if (args.length == 1 && helperOptions.stream().noneMatch(args[0]::equals) && System.in.available() > 0) {
+        // Check if piped input has value. If available, read the value and set it to the args
+        // else, continue (to throw error that input is missing or work with the file)
+        if (System.in.available() > 0) {
             StringBuilder fileContents = new StringBuilder();
             InputStreamReader isReader = new InputStreamReader(System.in);
             BufferedReader bufReader = new BufferedReader(isReader);

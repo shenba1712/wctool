@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 import static java.util.Objects.nonNull;
 
 @CommandLine.Command(name = "wctool", mixinStandardHelpOptions = true, version = "1.0.0",
-        description = "A simple WC Tool to print number of words, lines and bytes in a file")
+        description = "A simple WC Tool to print number of words, lines, characters, and bytes in a file")
 public class WCTool implements Callable<Integer> {
 
     @CommandLine.Option(names = "-c", description = "calculate number of bytes")

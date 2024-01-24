@@ -15,7 +15,7 @@ public class WCToolTest {
     private final static PrintStream originalErr = System.err;
     private final static InputStream originalIn = System.in;
 
-    private final static String testFilePath = "/Users/shenba/Documents/workspace/wctool/src/main/resources/test.txt";
+    private final static String testFilePath = "file/path/wctool/src/main/resources/test.txt";
     private final static String testInput = "This is a test input";
 
     private static final String inputMissingError = """

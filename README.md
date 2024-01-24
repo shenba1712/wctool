@@ -9,7 +9,7 @@ This is built as part of John Crickett's [coding challenge](https://codingchalle
 
 Before we dive into the tool's usage, let's understand Unix's [wc](https://linux.die.net/man/1/wc) tool.
 
-This tool prints word, line, character and byte counts for each FILE. 
+This tool prints each FILE's word, line, character, and byte counts. 
 With no FILE, or when FILE is -, it reads from standard input.
 
 `man wc`
@@ -40,7 +40,7 @@ output version information and exit
 
 ## WCTool
 
-Similar to Unix's wc tool, the custom-built tool can also count words, lines, characters and bytes in a file.
+Like Unix's wc tool, the custom-built tool can also count words, lines, characters and bytes in a file.
 It also reads and calculates values of piped input.
 
 While `wc` can work with multiple files, the first version of our custom tool only takes one file.
@@ -71,9 +71,9 @@ For more info: https://dev.to/jbebar/native-cli-with-picocli-and-graalvm-566m
 
 ### Running the application
 
-There are two ways you can run the application, and the example command will show how to count the number of words in the file.
+You can run the application in two ways, and the example command will show how to count the number of words in the file.
 
-You can use the [test file](src/main/resources/test.txt) included in the project for testing.
+For testing, you can use the [test file](src/main/resources/test.txt) included in the project.
 
 #### Using jar file
 
@@ -114,15 +114,15 @@ A simple WC Tool to print number of words, lines and bytes in a file
 
 1. Combine options to get multiple flags to get more values.
 
-`./wctool -wl absolute/path/to/text/file` -> This will display both number of words and lines in the file.
+`./wctool -wl absolute/path/to/text/file` -> This will display the number of words and lines in the file.
 
 2. Not specifying a flag will calculate all values
 
-`./wctool absolute/path/to/text/file` -> This will display number of words, lines, characters, and bytes in the file.
+`./wctool absolute/path/to/text/file` -> This will display the file's number of words, lines, characters, and bytes.
 
 ### Helpers options
 
-Picocli enables the option of displaying a usage document for users to use the document. This can be viewed using
+Picocli enables the option of displaying a usage document for users to use the document. This can be viewed using:
 
 `./wctool -h` or `./wctool --help`
 
@@ -138,10 +138,14 @@ A simple WC Tool to print number of words, lines and bytes in a file
 -w              calculate number of words
 ```
 
-Similarly, we can also get the version of the tool using
+Similarly, we can also get the version of the tool using:
 
 `./wctool -V` or `./wctool --version`
 
 ```
 1.0.0
 ```
+
+### Tests
+
+To run tests with a file, please change the file path to an absolute path, as the application only recognizes absolute file paths.
